@@ -1,25 +1,70 @@
-import logo from './logo.svg';
 import './App.css';
-
+import {Navbar, Container, Nav, NavDropdown, Jumbotron, Button} from "react-bootstrap";
+import data from "./Data.js";
+import {useState} from "react";
 function App() {
+
+    const [shoose, shooseFunc] = useState(data);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Navbar bg="light" expand="lg">
+            <Container>
+                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#link">Link</Nav.Link>
+                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                        </NavDropdown>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
+
+        <Jumbotron className="bg">
+            <h1>Hello, world!</h1>
+            <p>
+                This is a simple hero unit, a simple jumbotron-style component for calling
+                extra attention to featured content or information.
+            </p>
+            <p>
+                <Button variant="primary">Learn more</Button>
+            </p>
+        </Jumbotron>
+
+        <div className="container">
+            <div className="row">
+                {
+                    shoose.map(function (val, idx){
+                        return <List props={shoose[idx]}></List>
+                    })
+                }
+            </div>
+        </div>
+
+
     </div>
   );
+}
+
+function List(props) {
+
+    console.log(props);
+
+    return (
+        <div className="col-md-4">
+            <img src={props.props.src} width="100%" />
+            <h4>{props.props.title}</h4>
+            <p>{props.props.content}</p>
+        </div>
+    )
 }
 
 export default App;
