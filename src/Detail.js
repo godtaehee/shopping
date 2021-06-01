@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from 'styled-components';
 import './detail.scss';
 
@@ -14,6 +14,15 @@ let Font = styled.h4`
 
 
 function Detail(){
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            document.querySelector('.my-alert').remove();
+        },  2000);
+
+        return  () => clearTimeout(timer);
+    })
+
     return (
         <div>
             <div className="my-alert">
