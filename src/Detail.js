@@ -13,16 +13,12 @@ let Font = styled.h4`
 
 
 
-
-function Detail() {
+function Detail(){
     return (
         <div>
-            <Font className="red">
-                안안녕
-            </Font>
-            <Font color={'red'}>
-                안녕
-            </Font>
+            <div className="my-alert">
+                <p>재고가 얼마 남지 않았습니다</p>
+            </div>
         </div>
     )
 }
