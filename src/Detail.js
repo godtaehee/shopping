@@ -1,32 +1,31 @@
 import React from "react";
-import { useHistory, useParams } from "react-router-dom";
+import styled from 'styled-components';
+import './detail.scss';
 
-function Detail(props) {
-    let history = useHistory();
-    const {id} = useParams();
+let 박스 = styled.div`
+    padding: 20px;
+    `;
 
-    const shoose = props.shoose.filter((val, idx) => {
-        return props.shoose[idx].id === id*1;
-    });
+let Font = styled.h4`
+  font-size: 200px;
+  color: ${ props => props.color};
+`;
 
+
+
+
+function Detail() {
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-md-6">
-                    <img src={shoose[0].src} width="100%" />
-                </div>
-                <div className="col-md-6 mt-4">
-                    <h4 className="pt-5">상품명</h4>
-                    <p>{shoose[0].title}</p>
-                    <p>{shoose[0].content}</p>
-                    <button className="btn btn-danger">주문하기</button>
-                    <button onClick={ () => {
-                        history.goBack()
-                    }} className="btn btn-danger">뒤로가기</button>
-                </div>
-            </div>
+        <div>
+            <Font className="red">
+                안안녕
+            </Font>
+            <Font color={'red'}>
+                안녕
+            </Font>
         </div>
     )
 }
 
 export default Detail;
+
