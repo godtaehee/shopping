@@ -1,13 +1,25 @@
 import './App.css';
-import {Navbar, Container, Nav, NavDropdown, Jumbotron, Button} from "react-bootstrap";
-import data from "./Data.js";
+import { Navbar, Nav, NavLink, Button} from "react-bootstrap";
+import  {  Link, Route,  Switch } from "react-router-dom";
+import Detail from "./Detail.js";
 import {useState} from "react";
+import data from "./data.js";
+
 function App() {
 
     const [shoose, shooseFunc] = useState(data);
 
   return (
     <div className="App">
+<<<<<<< HEAD
+
+        <Route path="/">
+            <div>그냥 페이지</div>
+        </Route>
+        <Route path="/detail/">
+            <Detail />
+        </Route>
+=======
         <Navbar bg="light" expand="lg">
             <Container>
                 <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
@@ -50,6 +62,7 @@ function App() {
         </div>
 
 
+>>>>>>> main
     </div>
   );
 }
